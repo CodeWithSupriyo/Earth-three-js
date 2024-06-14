@@ -1,22 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>My first three.js app</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+    // <uniquifier>: Use a unique and descriptive class name
+    // <weight>: Use a value from 400 to 900
 
-  <title>HTML</title>
-  
-  <!-- HTML -->
-  
+    .playfair-display-<uniquifier> {
+      font-family: "Playfair Display", serif;
+      font-optical-sizing: auto;
+      font-weight: <weight>;
+      font-style: normal;
+    }
+  </style>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Playfair Display"
+    }
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css">
+    .main {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      font-size: 10vw;
+    }
+
+    h1 {
+      position: absolute;
+      color: #FFFFFF;
+    }
+
+    .para {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      font-size: 10vw;
+      padding: 1vh 10vw;
+    }
+
+    p {
+      position: absolute;
+      color: #AAAAAA;
+      top: 70%;
+      text-align: center;
+    }
+  </style>
+  <script type="importmap">
+    {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
+    }
+  }
+</script>
 </head>
 
 <body>
-  <p>Nothing to see here...</p>
-  <!-- Project -->
-  <script src="main.js"></script>
+  <div class="main">
+    <h1>Earth</h1>
+  </div>
+  <div class="paragraph">
+    <p>
+      The third planet from the sun, Earth is the only place in the known universe confirmed to host life.<br>
+      With a radius of 3,959 miles, Earth is the fifth largest planet in our solar system, and it's the only one known for sure to have liquid water on its surface.<br>
+      Earth is also unique in terms of monikers.
+    </p>
+  </div>
+  <script type="module" src="/main.js"></script>
 </body>
+
 </html>
