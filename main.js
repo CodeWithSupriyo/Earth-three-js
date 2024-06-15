@@ -28,7 +28,9 @@ const material = new THREE.MeshStandardMaterial({
   map: earthTexture,
   normalMap: earthNormalTexture,
   bumpMap: earthDerictionalTexture,
-  bumpScale: 10,
+  bumpScale: 0.3,
+  metalness: 0,
+  roughness: 1,
 });
 
 const materialMoon = new THREE.MeshStandardMaterial({
@@ -40,14 +42,21 @@ const sphere = new THREE.Mesh(geometry, material);
 scene.add(sphere);
 
 const moon = new THREE.Mesh(geometryMoon, materialMoon);
+moon.position.x = -6;
 scene.add(moon);
+
+let moonPivot = new THREE.Object3D();
+sphere.add(moonPivot);
+moonPivot.add(moon);
 
 camera.position.z = 15;
 
 function animate() {
 
-  sphere.rotation.y += 0.01;
-  moon.position.x = -6;
+  sphere.rotation.y += 0.005;
+  moonPivot.rotation.y -= -0.007;
+  moonPivot.rotation.x = 0.3;
+  
   renderer.render(scene, camera);
 
 }
