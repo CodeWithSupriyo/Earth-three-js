@@ -9,9 +9,6 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setAnimationLoop(animate);
 document.body.appendChild(renderer.domElement);
 
-//const light = new THREE.HemisphereLight(0xffffff, 0x1c1c1c, 0.7);
-//scene.add(light);
-
 const directionalLight = new THREE.DirectionalLight(0xffffff, 6);
 directionalLight.position.set( -1000000, 1000000, 1000000);
 scene.add(directionalLight);
@@ -33,11 +30,11 @@ const material = new THREE.MeshStandardMaterial({
   bumpMap: earthDerictionalTexture,
   bumpScale: 10,
 });
+
 const materialMoon = new THREE.MeshStandardMaterial({
   map: moonTexture,
   normalMap: moonNormalTexture,
 });
-
 
 const sphere = new THREE.Mesh(geometry, material);
 scene.add(sphere);
@@ -45,15 +42,12 @@ scene.add(sphere);
 const moon = new THREE.Mesh(geometryMoon, materialMoon);
 scene.add(moon);
 
-
 camera.position.z = 15;
 
 function animate() {
 
   sphere.rotation.y += 0.01;
-
   moon.position.x = -6;
-
   renderer.render(scene, camera);
 
 }
