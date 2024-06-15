@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-//import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -13,7 +13,7 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 6);
 directionalLight.position.set( -1000000, 1000000, 1000000);
 scene.add(directionalLight);
 
-//const controls = new OrbitControls(camera, renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
 
 const earthTexture = new THREE.TextureLoader().load("/earth_texture_map_1000px.jpg");
 const earthNormalTexture = new THREE.TextureLoader().load("/IMG_20240614_134058.jpg");
